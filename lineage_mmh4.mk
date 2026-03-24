@@ -18,10 +18,10 @@
 PRODUCT_RELEASE_NAME := LG K40
 
 # Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_o_mr1.mk)
 
-# Insecure adb
 ifneq ($(TARGET_BUILD_VARIANT),eng)
     PRODUCT_PROPERTY_OVERRIDES += \
 	ro.secure=0 \
@@ -30,16 +30,32 @@ ifneq ($(TARGET_BUILD_VARIANT),eng)
 	persist.service.adb.enable=1
 endif
 
-# Init
+# Update engine
 PRODUCT_PACKAGES += \
-    fstab.enableswap \
-    init.target.rc \
-    init.recovery.mmh4.rc \
-	init.recovery.mt6765.rc
+    update_engine \
+    update_engine_sideload
+
+
+# HIDL
+PRODUCT_PACKAGES += \
+    android.hidl.base@1.0 \
+    android.hidl.manager@1.0
+
+# Audio
+PRODUCT_COPY_FILES += \
+	frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_audio_policy_configuration.xml \
+	frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
+	frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml \
+	frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
+	frameworks/av/services/audiopolicy/config/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
+
+# Display
+TARGET_SCREEN_WIDTH := 720
+TARGET_SCREEN_HEIGHT := 1440
 
 # Device identifier.
 PRODUCT_DEVICE := mmh4
@@ -48,3 +64,6 @@ PRODUCT_BRAND := LGE
 PRODUCT_MODEL := LM-X420
 PRODUCT_MANUFACTURER := LGE
 PRODUCT_CHARACTERISTICS := phone
+
+# Call proprietary blob setup
+$(call inherit-product-if-exists, vendor/lge/mmh4/mmh4-vendor.mk)

@@ -21,15 +21,16 @@ TARGET_BOARD_PLATFORM := mt6765
 TARGET_BOOTLOADER_BOARD_NAME := mt6765
 TARGET_NO_BOOTLOADER := true
 
+BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
+BOARD_USES_RECOVERY_AS_BOOT := true
+TARGET_NO_RECOVERY := true
+
 # Treble
 BOARD_VNDK_VERSION  := current
 PRODUCT_EXTRA_VNDK_VERSIONS := 28
 TARGET_COPY_OUT_VENDOR := vendor
 
 AB_OTA_UPDATER := true
-
-TARGET_NO_RECOVERY := true
-BOARD_USES_RECOVERY_AS_BOOT := true
 
 # Architecture
 TARGET_ARCH := arm
@@ -49,9 +50,8 @@ BOARD_KERNEL_BASE := 0x40000000
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x11b00000 --second_offset 0x00f00000 --tags_offset 0x07880000 --dt $(DEVICE_PATH)/prebuilt/dt.img
 
 BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,32N2 
-BOARD_KERNEL_CMDLINE += androidboot.mode=recovery
 BOARD_KERNEL_CMDLINE += androidboot.usbconfigfs=true
-BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive 
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
@@ -59,21 +59,30 @@ BOARD_BOOTIMAGE_PARTITION_SIZE := 33554432
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3221225472
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 22124429312
 BOARD_VENDORIMAGE_PARTITION_SIZE := 536870912
+BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 
 AB_OTA_PARTITIONS := \
     boot \
     system \
     vendor \
-    odmdtbo \
     vbmeta
+
+# Audio
+USE_XML_AUDIO_POLICY_CONF := 1
 
 # MediaTek
 BOARD_HAS_MTK_HARDWARE := true
 
+# HIDL
+DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
+DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
+
 # Recovery
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/etc/recovery.fstab
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_SPARSE_EXT_DISABLED := false
 
-# TWRP Specifics
-TW_THEME := portrait_hdpi
-TW_INCLUDE_CRYPTO := true
+# Verified Boot
+BOARD_AVB_ENABLE := true
+BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --set_hashtree_disabled_flag
+BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 2

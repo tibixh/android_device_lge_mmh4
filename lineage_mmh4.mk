@@ -35,6 +35,11 @@ PRODUCT_PACKAGES += \
     update_engine \
     update_engine_sideload
 
+# Bootctrl
+PRODUCT_PACKAGES += \
+	bootctrl.default.recovery \
+	android.hardware.boot@1.0-impl \
+	android.hardware.boot@1.0-impl.recovery 
 
 # HIDL
 PRODUCT_PACKAGES += \

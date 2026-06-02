@@ -40,14 +40,14 @@ TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_VARIANT := generic
 
 # Kernel
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
-# TARGET_KERNEL_SOURCE := kernel/lge/mt6765
-# TARGET_KERNEL_CONFIG := mmh4x_defconfig
-# BOARD_KERNEL_IMAGE_NAME := zImage-dtb
+# TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
+TARGET_KERNEL_SOURCE := kernel/lge/mmh4
+TARGET_KERNEL_CONFIG := mmh4_defconfig
+BOARD_KERNEL_IMAGE_NAME := zImage-dtb
 
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_BASE := 0x40000000
-BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x11b00000 --second_offset 0x00f00000 --tags_offset 0x07880000 --dt $(DEVICE_PATH)/prebuilt/dt.img
+BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x11b00000 --second_offset 0x00f00000 --tags_offset 0x07880000
 
 BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,32N2 
 BOARD_KERNEL_CMDLINE += androidboot.usbconfigfs=true

@@ -14,6 +14,8 @@
 # limitations under the License.
 #
 
+DEVICE_PATH := device/lge/mmh4
+
 # Release name
 PRODUCT_RELEASE_NAME := LG K40
 
@@ -30,6 +32,10 @@ ifneq ($(TARGET_BUILD_VARIANT),eng)
 	persist.service.adb.enable=1
 endif
 
+# Recovery init
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/rootdir/init.recovery.mt6765.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.mt6765.rc
+
 # Update engine
 PRODUCT_PACKAGES += \
     update_engine \
@@ -37,9 +43,12 @@ PRODUCT_PACKAGES += \
 
 # Bootctrl
 PRODUCT_PACKAGES += \
-	bootctrl.default.recovery \
 	android.hardware.boot@1.0-impl \
-	android.hardware.boot@1.0-impl.recovery 
+	android.hardware.boot@1.0-impl.recovery \
+
+# ueventd
+PRODUCT_PACKAGES += \
+	ueventd.mmh4.rc
 
 # HIDL
 PRODUCT_PACKAGES += \

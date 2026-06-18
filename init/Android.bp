@@ -5,5 +5,4 @@ cc_library_static {
     include_dirs: [
         "system/core/init",
     ],
-    recovery_available: true,
 }

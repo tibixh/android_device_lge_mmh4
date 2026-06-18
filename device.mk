@@ -14,27 +14,30 @@
 # limitations under the License.
 #
 
-ifneq ($(TARGET_BUILD_VARIANT),eng)
-    PRODUCT_PROPERTY_OVERRIDES += \
-	ro.secure=0 \
-	ro.adb.secure=0 \
-	ro.debuggable=1 \
-	persist.service.adb.enable=1
-endif
-
 # Recovery init
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init.recovery.mt6765.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.mt6765.rc
 
-# Update engine
+# Init
 PRODUCT_PACKAGES += \
-    update_engine \
-    update_engine_sideload
+	init.mt6765.rc \
+	fstab.mmh4
 
-# Bootctrl
+# # Update engine
+# PRODUCT_PACKAGES += \
+#     update_engine \
+#     update_engine_sideload
+
+# # Bootctrl
+# PRODUCT_PACKAGES += \
+# 	android.hardware.boot@1.0-impl \
+# 	android.hardware.boot@1.0-impl.recovery \
+
+# Health
 PRODUCT_PACKAGES += \
-	android.hardware.boot@1.0-impl \
-	android.hardware.boot@1.0-impl.recovery \
+    android.hardware.health@2.1-service \
+    android.hardware.health@2.1-impl \
+    android.hardware.health@2.0-impl-2.1
 
 # ueventd
 PRODUCT_PACKAGES += \

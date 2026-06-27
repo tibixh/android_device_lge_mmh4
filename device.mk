@@ -14,24 +14,23 @@
 # limitations under the License.
 #
 
+# Dalvik
+$(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk)
+
 # Recovery init
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/init.recovery.mt6765.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.mt6765.rc
+    $(LOCAL_PATH)/rootdir/init.recovery.mt6765.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.mt6765.rc \
+	$(LOCAL_PATH)/rootdir/init.recovery.mt6765.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.mmh4.rc
 
 # Init
-PRODUCT_PACKAGES += \
-	init.mt6765.rc \
-	fstab.mmh4
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/rootdir/etc/init.mt6765.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.mt6765.rc
 
-# # Update engine
-# PRODUCT_PACKAGES += \
-#     update_engine \
-#     update_engine_sideload
+# Ueventd
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/rootdir/ueventd.mmh4.rc:$(TARGET_COPY_OUT_ROOT)/ueventd.mmh4.rc
 
-# # Bootctrl
-# PRODUCT_PACKAGES += \
-# 	android.hardware.boot@1.0-impl \
-# 	android.hardware.boot@1.0-impl.recovery \
+## TODO: fix recovery init for patching ro.hardware before init
 
 # Health
 PRODUCT_PACKAGES += \
@@ -39,14 +38,38 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
     android.hardware.health@2.0-impl-2.1
 
-# ueventd
+# Configstore
 PRODUCT_PACKAGES += \
-	ueventd.mmh4.rc
+    android.hardware.configstore@1.1-service
+
+# Display
+PRODUCT_PACKAGES += \
+    android.hardware.graphics.composer@2.1-service \
+    android.hardware.graphics.composer@2.1-resources \
+    android.hardware.graphics.composer@2.1-impl \
+    android.hardware.memtrack@1.0-impl \
+    android.hardware.memtrack@1.0-service \
+    libdrm.vendor \
+    libhwc2on1adapter \
+    libhwc2onfbadapter \
+    libvulkan
+
+# DRM
+PRODUCT_PACKAGES += \
+    android.hardware.drm@1.0-impl:64 \
+    android.hardware.drm@1.0-service-lazy \
+    android.hardware.drm@1.3-service.clearkey
 
 # HIDL
 PRODUCT_PACKAGES += \
+    libhidltransport \
+    libhidltransport.vendor \
+    libhwbinder \
+    libhwbinder.vendor \
     android.hidl.base@1.0 \
-    android.hidl.manager@1.0
+    android.hidl.manager@1.0 \
+    android.hidl.memory.block@1.0
+
 
 # Audio
 PRODUCT_COPY_FILES += \

@@ -18,5 +18,6 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/lineage_mmh4.mk
 
 COMMON_LUNCH_CHOICES := \
+    lineage_mmh4-user \
     lineage_mmh4-userdebug \
     lineage_mmh4-eng

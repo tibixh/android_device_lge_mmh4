@@ -28,6 +28,8 @@ TARGET_NO_RECOVERY := true
 TARGET_INIT_VENDOR_LIB := libinit_mmh4
 TARGET_RECOVERY_DEVICE_MODULES := libinit_mmh4
 
+TARGET_USES_64_BIT_BINDER := true
+
 # Architecture
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
@@ -48,7 +50,6 @@ BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x11b00000 -
 BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,32N2 
 BOARD_KERNEL_CMDLINE += androidboot.usbconfigfs=true
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
-BOARD_KERNEL_CMDLINE += androidboot.init_fatal_reboot_target=recovery
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
@@ -81,8 +82,8 @@ USE_XML_AUDIO_POLICY_CONF := 1
 BOARD_HAS_MTK_HARDWARE := true
 
 # HIDL
-DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
-DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
+# DEVICE_MATRIX_FILE += $(DEVICE_PATH)/compatibility_matrix.xml
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/recovery.fstab
@@ -91,5 +92,6 @@ TARGET_USERIMAGES_SPARSE_EXT_DISABLED := false
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
-BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --set_hashtree_disabled_flag
-BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 2
+BOARD_AVB_ALGORITHM := SHA256_RSA2048
+BOARD_AVB_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
+BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3

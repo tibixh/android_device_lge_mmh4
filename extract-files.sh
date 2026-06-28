@@ -18,12 +18,6 @@
 
 set -e
 
-# Abort if device not inherited
-if  [ -z "$DEVICE" ]; then
-    echo "Variable DEVICE not defined, aborting..."
-    exit 1
-fi
-
 # Required!
 export DEVICE=mmh4
 export VENDOR=lge

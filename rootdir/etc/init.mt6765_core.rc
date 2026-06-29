@@ -1,0 +1,73 @@
+# This file is imported by init.{ro.hardware}.rc
+
+# to override this file (device specific .rc)
+import /vendor/etc/init/hw/init.${ro.hardware}_core.rc
+
+on init
+    # Symbolic link path
+    symlink /dev/block/platform/bootdevice/by-name/boot /dev/bootimg
+    symlink /dev/block/platform/bootdevice/by-name/recovery /dev/recovery
+    symlink /dev/block/platform/bootdevice/by-name/secro  /dev/sec_ro
+    symlink /dev/block/platform/bootdevice/by-name/seccfg /dev/seccfg
+    symlink /dev/block/platform/bootdevice/by-name/proinfo /dev/pro_info
+    symlink /dev/block/platform/bootdevice/by-name/nvram /dev/nvram
+    symlink /dev/block/platform/bootdevice/by-name/para /dev/misc
+    symlink /dev/block/platform/bootdevice/by-name/logo /dev/logo
+    symlink /dev/block/platform/bootdevice/by-name/misc2 /dev/misc2
+    symlink /dev/block/platform/bootdevice/by-name/ftm /dev/ftm
+    symlink /dev/block/platform/bootdevice/by-name/rct /dev/rct
+
+on boot
+    mount debugfs debugfs /sys/kernel/debug
+    chmod 0755 /sys/kernel/debug
+
+on post-fs
+	chown root system /mnt/vendor/persist-lg/.sreadahead
+	chmod 0770 /mnt/vendor/persist-lg/.sreadahead
+
+	chown root system /mnt/vendor/persist-lg/.sreadahead/.sreadahead_done
+	chmod 0660 /mnt/vendor/persist-lg/.sreadahead/.sreadahead_done
+
+	chown root system /mnt/vendor/persist-lg/.sreadahead/.readahead_list.txt
+	chmod 0660 /mnt/vendor/persist-lg/.sreadahead/.readahead_list.txt
+
+	chown root system /mnt/vendor/persist-lg/.sn.bin
+	chmod 0644 /mnt/vendor/persist-lg/.sn.bin
+
+	# execute sreadahead daemon to reduce boot-time
+	start sreadahead
+
+on post-fs-data
+# PSEUDO_BATTERY
+    chown system system /sys/devices/platform/battery/pseudo_batt
+
+# LGE set lifedata_info
+    start lifedata_info
+
+    setprop vold.post_fs_data_done 1
+
+# execute sreadahead daemon to reduce boot-time
+service sreadahead /vendor/bin/treadahead
+	user root
+	group root system
+	oneshot
+	disabled
+	priority -2
+	ioprio rt 0
+	seclabel u:r:sreadahead:s0
+	writepid /dev/cpuset/foreground/tasks
+
+# make a diecision whether sreadahead would be performed or not.
+service sreadahead-check /vendor/bin/sreadahead_check
+	class main
+	user root
+	group root system
+	oneshot
+	seclabel u:r:sreadahead-check:s0
+
+# LGE set lifedata_info
+service lifedata_info /vendor/bin/set_life_data.sh
+    user root
+    group root system radio
+    disabled
+    oneshot

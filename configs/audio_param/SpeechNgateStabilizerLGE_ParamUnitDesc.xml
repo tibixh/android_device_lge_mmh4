@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParamUnitDesc version="1.0">
+	<CategoryTypeList>
+		<CategoryType name="CategoryLayer" wording="CategoryLayer">
+			<Category name="" wording="Common" alias="Common"/>
+		</CategoryType>
+	</CategoryTypeList>
+	<ParamUnit>
+		<!-- Narrow Band -->
+		<!-- Handset --> 
+		<Param name="NB_Handset_ngate_para" type="int_array"/>
+		<Param name="NB_Handset_stabil_para" type="int_array"/>
+		<!-- Speaker -->
+		<Param name="NB_Speaker_ngate_para" type="int_array"/>
+		<Param name="NB_Speaker_stabil_para" type="int_array"/>
+		<!-- Headset -->
+		<Param name="NB_Headset_ngate_para" type="int_array"/>
+		<Param name="NB_Headset_stabil_para" type="int_array"/>
+		<!-- Wide Band -->
+		<!-- Handset -->
+		<Param name="WB_Handset_ngate_para" type="int_array"/>
+		<Param name="WB_Handset_stabil_para" type="int_array"/>
+		<!-- Speaker -->
+		<Param name="WB_Speaker_ngate_para" type="int_array"/>
+		<Param name="WB_Speaker_stabil_para" type="int_array"/>
+		<!-- Headset -->
+		<Param name="WB_Headset_ngate_para" type="int_array"/>
+		<Param name="WB_Headset_stabil_para" type="int_array"/>
+	</ParamUnit>
+</ParamUnitDesc>

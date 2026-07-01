@@ -1,0 +1,12 @@
+on boot
+    chown system system /dev/fpsdev0
+    chmod 0644 /dev/fpsdev0
+    chown system system /dev/focaltech_fp
+    chmod 0644 /dev/focaltech_fp
+
+on property:ro.vendor.lge.minios.bootstart=1
+    stop vendor.lge-biometrics-fingerprint-hal-2-1
+
+on property:ro.boot.vendor.lge.fingerprint_sensor=1
+    copy /vendor/etc/permissions/sensors/android.hardware.fingerprint.xml /mnt/vendor/persist-lg/sensor/android.hardware.fingerprint.xml
+    chmod 644 /mnt/vendor/persist-lg/sensor/android.hardware.fingerprint.xml

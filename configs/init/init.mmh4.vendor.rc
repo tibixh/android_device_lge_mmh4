@@ -1,0 +1,33 @@
+#file will be installed as vendor/etc/init/hw/init.{ro.hardware}.rc
+
+# import vendor rc file
+import /vendor/etc/init/hw/init.${ro.hardware}_vendor.rc
+
+# import wifi service
+import /vendor/etc/init/init.wifi.rc
+
+import /vendor/etc/init/hw/init.mmh4.sensors_vendor.rc
+import /vendor/etc/init/hw/init.mmh4.fingerprints_vendor.rc
+
+on fs
+    chown system system /mnt/vendor/mpt
+    chmod 0775 /mnt/vendor/mpt
+    restorecon_recursive /mnt/vendor/mpt
+
+    chown system system /mnt/vendor/persist-lg
+    chmod 0755 /mnt/vendor/persist-lg
+    restorecon_recursive /mnt/vendor/persist-lg
+
+on post-fs
+# Load exfat module
+    insmod /vendor/lib/modules/texfat.ko
+
+on post-fs-data
+    # NFC: create data/nfc for nv storage
+    mkdir /data/vendor/nfc 0770 nfc nfc
+
+on property:ro.boot.vendor.lge.sim_num=1
+    setprop persist.radio.multisim.config ss
+
+on property:ro.boot.vendor.lge.sim_num=2
+    setprop persist.radio.multisim.config dsds

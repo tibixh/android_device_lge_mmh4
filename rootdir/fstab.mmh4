@@ -1,9 +1,11 @@
+# TODO: add back encryption
+
 # [ DEVICE_BLOCK ]                                               [ MOUNT_POINT ]          [TYPE] [MNT_FLAGS AND OPTIONS ]                                [ FS_MGR_FLAGS ]
 
 # Android Native
-/dev/block/platform/bootdevice/by-name/system                        /                     ext4 ro wait,slotselect,avb,logical,first_stage_mount
-/dev/block/platform/bootdevice/by-name/vendor                        /vendor               ext4 ro wait,slotselect,avb,logical,first_stage_mount
-/dev/block/platform/bootdevice/by-name/userdata                      /data                 ext4 noatime,nosuid,nodev,noauto_da_alloc,errors=panic         wait,check,formattable,resize,forceencrypt=/dev/block/platform/bootdevice/by-name/encrypt,quota,reservedsize=128M
+/dev/block/platform/bootdevice/by-name/system                        /                     ext4 ro wait,slotselect,verify,recoveryonly
+/dev/block/platform/bootdevice/by-name/vendor                        /vendor               ext4 ro wait,slotselect,verify,recoveryonly
+/dev/block/platform/bootdevice/by-name/userdata                      /data                 ext4 noatime,nosuid,nodev,noauto_da_alloc,errors=panic         wait,check,formattable,resize,quota,reservedsize=128M
 /dev/block/platform/bootdevice/by-name/protect1                      /mnt/vendor/protect_f     ext4 noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc  wait,check,formattable
 /dev/block/platform/bootdevice/by-name/protect2                      /mnt/vendor/protect_s     ext4 noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc  wait,check,formattable
 /dev/block/platform/bootdevice/by-name/nvdata                        /mnt/vendor/nvdata        ext4 noatime,nosuid,nodev,noauto_da_alloc,discard              wait,check,formattable
@@ -11,7 +13,7 @@
 /dev/block/platform/bootdevice/by-name/persist                       /mnt/vendor/persist   ext4 noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc  wait,check,formattable
 /dev/block/platform/bootdevice/by-name/frp                           /persistent           emmc defaults                                                  defaults
 
-/devices/platform/externdevice* auto auto defaults voldmanaged=sdcard1:auto,encryptable=userdata
+/devices/platform/externdevice* auto auto defaults voldmanaged=sdcard1:auto
 /devices/platform/11200000.usb0/musb-hdrc/usb* auto auto defaults voldmanaged=usbotg:auto
 
 # MTK Native

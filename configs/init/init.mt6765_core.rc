@@ -3,6 +3,9 @@
 # to override this file (device specific .rc)
 import /vendor/etc/init/hw/init.${ro.hardware}_core.rc
 
+# LGE logger service rc
+import /init.lge.log.rc
+
 on init
     # Symbolic link path
     symlink /dev/block/platform/bootdevice/by-name/boot /dev/bootimg

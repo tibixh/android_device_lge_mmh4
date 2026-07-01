@@ -14,36 +14,25 @@
 # limitations under the License.
 #
 
-# Dalvik
-$(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk)
-
 # Recovery init
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/rootdir/init.recovery.mt6765.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.mmh4.rc
+    $(LOCAL_PATH)/configs/init/init.recovery.mt6765.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.mmh4.rc
 
 # Init
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/rootdir/etc/init.mt6765.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.mt6765.rc \
-    $(LOCAL_PATH)/rootdir/etc/init.mt6765_core.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.mt6765_core.rc \
-    $(LOCAL_PATH)/rootdir/etc/init.mmh4.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.mmh4.rc \
-    $(LOCAL_PATH)/rootdir/etc/init.lge.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.lge.usb.rc \
-    $(LOCAL_PATH)/rootdir/etc/init.lge.usb.configfs.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/iinit.lge.usb.configfs.rc
+	$(LOCAL_PATH)/configs/init/init.mmh4.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.mmh4.rc \
+	$(LOCAL_PATH)/configs/init/init.mt6765.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.mt6765.rc \
+	$(LOCAL_PATH)/configs/init/init.mt6765_core.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.mt6765_core.rc \
+	$(LOCAL_PATH)/configs/init/init.lge.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.lge.usb.rc \
+	$(LOCAL_PATH)/configs/init/init.lge.usb.configfs.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.lge.usb.configfs.rc \
+
+# Fstab
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/rootdir/fstab.mmh4:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.mmh4
 
 # Ueventd
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/rootdir/ueventd.mmh4.rc:$(TARGET_COPY_OUT_ROOT)/ueventd.mmh4.rc
-
-## TODO: fix recovery init for patching ro.hardware before init
-
-# Health
-PRODUCT_PACKAGES += \
-    android.hardware.health@2.1-service \
-    android.hardware.health@2.1-impl \
-    android.hardware.health@2.0-impl-2.1
-
-# Configstore
-PRODUCT_PACKAGES += \
-    android.hardware.configstore@1.1-service
+	$(LOCAL_PATH)/rootdir/ueventd.mmh4:$(TARGET_COPY_OUT_VENDOR)/ueventd.mmh4
 
 # Display
 PRODUCT_PACKAGES += \
@@ -58,30 +47,46 @@ PRODUCT_PACKAGES += \
     libhwc2onfbadapter \
     libvulkan
 
-# DRM
+# Configstore
 PRODUCT_PACKAGES += \
-    android.hardware.drm@1.0-impl:64 \
-    android.hardware.drm@1.0-service-lazy \
-    android.hardware.drm@1.3-service.clearkey
+    android.hardware.configstore@1.1-service
+
+# Health
+PRODUCT_PACKAGES += \
+    android.hardware.health@2.0-service \
+    android.hardware.health@2.0-impl
 
 # HIDL
 PRODUCT_PACKAGES += \
-    libhidltransport \
-    libhidltransport.vendor \
-    libhwbinder \
-    libhwbinder.vendor \
     android.hidl.base@1.0 \
-    android.hidl.manager@1.0 \
-    android.hidl.memory.block@1.0
-
+    android.hidl.manager@1.0
 
 # Audio
+PRODUCT_PACKAGES += \
+    android.hardware.audio@4.0-impl \
+    android.hardware.audio@4.0 \
+    android.hardware.audio.effect@4.0-impl \
+    android.hardware.audio.common@4.0 \
+    libalsautils \
+    libaacwrapper \
+    libaudio-resampler \
+    libqcomvisualizer \
+    libqcomvoiceprocessing \
+    libqcompostprocbundle \
+    tinymix \
+    libtinycompress \
+    libtinyxml
+
+PRODUCT_COPY_FILES += \
+	$(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/audio_param/,$(TARGET_COPY_OUT_VENDOR)/etc/audio_param) \
+	$(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/audio/,$(TARGET_COPY_OUT_VENDOR)/etc/)
+
 PRODUCT_COPY_FILES += \
 	frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_audio_policy_configuration.xml \
 	frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
 	frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml \
 	frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
-	frameworks/av/services/audiopolicy/config/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
+	frameworks/av/services/audiopolicy/config/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \

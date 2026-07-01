@@ -1,0 +1,6 @@
+on post-fs-data
+    mkdir /mnt/vendor/persist-lg/sensor 0755 system system
+
+on property:ro.boot.vendor.lge.gyro=1
+    copy /vendor/etc/permissions/sensors/android.hardware.sensor.gyroscope.xml /mnt/vendor/persist-lg/sensor/android.hardware.sensor.gyroscope.xml
+    chmod 644 /mnt/vendor/persist-lg/sensor/android.hardware.sensor.gyroscope.xml

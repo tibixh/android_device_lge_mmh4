@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AudioParam version="1.0">
+  <ParamTree>
+    <Param path="" param_id="0"/>
+  </ParamTree>
+  <ParamUnitPool>
+    <ParamUnit param_id="0">
+      <Param name="NB_Handset_ngate_para" value="0,19660,32768,20,16384,0"/>
+      <Param name="NB_Handset_stabil_para" value="0,32000,10000,0,25000,20,0,0"/>
+      <Param name="NB_Speaker_ngate_para" value="0,19660,32768,96,16384,0"/>
+      <Param name="NB_Speaker_stabil_para" value="0,32000,10000,0,25000,20,0,0"/>
+      <Param name="NB_Headset_ngate_para" value="0,19660,32768,20,16384,9"/>
+      <Param name="NB_Headset_stabil_para" value="0,32000,10000,0,25000,20,0,0"/>
+      <Param name="WB_Handset_ngate_para" value="0,19660,32768,80,16384,0"/>
+      <Param name="WB_Handset_stabil_para" value="0,32000,10000,0,25000,20,0,0"/>
+      <Param name="WB_Speaker_ngate_para" value="0,19660,32768,96,16384,0"/>
+      <Param name="WB_Speaker_stabil_para" value="0,32000,5000,0,25000,20,0,0"/>
+      <Param name="WB_Headset_ngate_para" value="0,19660,32768,80,16384,0"/>
+      <Param name="WB_Headset_stabil_para" value="0,32000,10000,0,25000,20,0,0"/>
+    </ParamUnit>
+  </ParamUnitPool>
+</AudioParam>

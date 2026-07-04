@@ -39,7 +39,7 @@ TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_VARIANT := generic
 
 # Kernel
-# TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
+#TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilts/kernel
 TARGET_KERNEL_SOURCE := kernel/lge/mmh4
 TARGET_KERNEL_CONFIG := mmh4_defconfig
 BOARD_KERNEL_IMAGE_NAME := zImage-dtb
@@ -96,6 +96,8 @@ BOARD_AVB_ENABLE := true
 BOARD_AVB_ALGORITHM := SHA256_RSA2048
 BOARD_AVB_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
+
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
 # Include vendor
 -include vendor/lge/mmh4/BoardConfigVendor.mk

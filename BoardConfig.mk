@@ -82,6 +82,16 @@ USE_XML_AUDIO_POLICY_CONF := 1
 # MediaTek
 BOARD_HAS_MTK_HARDWARE := true
 
+# Connectivity modules
+BOARD_VENDOR_KERNEL_MODULES += \
+    $(DEVICE_PATH)/prebuilts/modules/wmt_drv.ko \
+    $(DEVICE_PATH)/prebuilts/modules/fmradio_drv.ko \
+    $(DEVICE_PATH)/prebuilts/modules/gps_drv.ko \
+    $(DEVICE_PATH)/prebuilts/modules/met.ko \
+    $(DEVICE_PATH)/prebuilts/modules/bt_drv.ko \
+    $(DEVICE_PATH)/prebuilts/modules/wlan_drv_gen4m.ko \
+    $(DEVICE_PATH)/prebuilts/modules/wmt_chrdev_wifi.ko
+
 # HIDL
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 # DEVICE_MATRIX_FILE += $(DEVICE_PATH)/compatibility_matrix.xml

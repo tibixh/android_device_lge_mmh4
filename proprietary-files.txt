@@ -161,22 +161,16 @@ vendor/etc/media_profiles_V1_0.xml
 vendor/etc/permissions/android.hardware.audio.low_latency.xml
 vendor/etc/r_submix_audio_policy_configuration.xml
 vendor/etc/usb_audio_policy_configuration.xml
-vendor/lib/hw/android.hardware.audio.effect@4.0-impl.so
 vendor/lib/hw/android.hardware.audio@4.0-impl-mediatek.so
-vendor/lib/hw/audio.primary.default.so
 vendor/lib/hw/audio.primary.mt6765.so
-vendor/lib/hw/audio.r_submix.default.so
 vendor/lib/hw/audio.r_submix.mt6765.so
-vendor/lib/hw/audio.usb.default.so
 vendor/lib/hw/audio.usb.mt6765.so
-vendor/lib/hw/audio_policy.stub.so
 vendor/lib/hw/sound_trigger.primary.mt6765.so
 vendor/lib/libMtkSpeechEnh.so
 vendor/lib/lib_iir.so
 vendor/lib/lib_speech_enh.so
 vendor/lib/libabfadp.so
 vendor/lib/libaedv.so
-vendor/lib/libalsautils.so
 vendor/lib/libaudio_param_parser-vnd.so
 vendor/lib/libaudiocompensationfilter_vendor.so
 vendor/lib/libaudiocompensationfilterc.so
@@ -195,26 +189,13 @@ vendor/lib/libblisrc32_vendor.so
 vendor/lib/libdts-eagle-shared.so
 vendor/lib/libeaglecore.so
 vendor/lib/libeffecthal.base.so
-vendor/lib/libeffects.so
-vendor/lib/libeffectsconfig.so
 vendor/lib/libmtk_drvb.so
 vendor/lib/libmtklimiter_vendor.so
 vendor/lib/libmtkshifter_vendor.so
-vendor/lib/libnbaio_mono.so
 vendor/lib/libomx-dtsdec.so
 vendor/lib/libspeech_enh_lib.so
 vendor/lib/libspeechparser_vendor.so
-vendor/lib/libtinycompress.so
-vendor/lib/libwebrtc_audio_preprocessing.so
-vendor/lib/soundfx/libaudiopreprocessing.so
-vendor/lib/soundfx/libbundlewrapper.so
-vendor/lib/soundfx/libdownmix.so
-vendor/lib/soundfx/libdynproc.so
 vendor/lib/soundfx/libeagle.so
-vendor/lib/soundfx/libeffectproxy.so
-vendor/lib/soundfx/libldnhncr.so
-vendor/lib/soundfx/libreverbwrapper.so
-vendor/lib/soundfx/libvisualizer.so
 vendor/lib/vendor.mediatek.hardware.audio@4.1.so
 
 # Media codec definitions
@@ -256,8 +237,8 @@ vendor/lib/libsysenv.so
 vendor/lib/libccci_tc1_srv.so
 
 # Media Codecs
-vendor/bin/hw/android.hardware.media.omx@1.0-service
-vendor/etc/init/android.hardware.media.omx@1.0-service.rc
+#vendor/bin/hw/android.hardware.media.omx@1.0-service
+#vendor/etc/init/android.hardware.media.omx@1.0-service.rc
 vendor/etc/seccomp_policy/mediacodec.policy
 vendor/etc/seccomp_policy/mediaextractor.policy
 vendor/etc/media_codecs.xml
@@ -309,7 +290,7 @@ vendor/lib/libvcodec_oal.so
 vendor/lib/libvcodec_utility.so
 vendor/lib/libvcodecdrv.so
 vendor/lib/vendor.mediatek.hardware.mtkcodecservice@1.1.so
-vendor/lib/libgui_vendor.so
+#vendor/lib/libgui_vendor.so
 vendor/lib/libSwJpgCodec.so
 vendor/lib/libJpgDecPipe.so
 vendor/lib/libJpgEncPipe.so

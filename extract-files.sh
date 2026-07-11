@@ -38,6 +38,15 @@ fi
 # Default to sanitizing the vendor folder before extraction
 CLEAN_VENDOR=true
 
+function blob_fixup() {
+    case "${1}" in
+        vendor/bin/hw/vendor.lge.hardware.wifi.hal@1.0-service)
+            patchelf --remove-needed "android.hidl.base@1.0.so" "${2}"
+            ;;
+    esac
+    return 0
+}
+
 while [ "$1" != "" ]; do
     case $1 in
         -n | --no-cleanup )     CLEAN_VENDOR=false
@@ -61,7 +70,7 @@ if [ ! -z "$DEVICE_COMMON" ]; then
     setup_vendor "$DEVICE_COMMON" "$VENDOR" "$LINEAGE_ROOT" true "$CLEAN_VENDOR"
 
     # Board specific blobs
-    extract "$MY_DIR"/proprietary-files-sony.txt "$SRC" "$SECTION"
+    extract "$MY_DIR"/proprietary-files.txt "$SRC" "$SECTION"
 
     # Generate vendor makefiles
     "$MY_DIR"/setup-makefiles.sh

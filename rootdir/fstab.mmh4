@@ -15,3 +15,6 @@
 
 /devices/platform/externdevice* auto auto defaults voldmanaged=sdcard1:auto,encryptable=userdata
 /devices/platform/11200000.usb0/musb-hdrc/usb* auto auto defaults voldmanaged=usbotg:auto
+
+# LGE
+/dev/block/platform/bootdevice/by-name/persist_lg                    /mnt/vendor/persist-lg    ext4 noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc  wait,check,formattable

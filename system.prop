@@ -1,5 +1,0 @@
-# Display density
-ro.sf.lcd_density=280
-
-# Fake ready for now
-vendor.service.nvram_init Ready

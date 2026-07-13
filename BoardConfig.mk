@@ -79,6 +79,9 @@ USE_XML_AUDIO_POLICY_CONF := 1
 # MediaTek
 BOARD_HAS_MTK_HARDWARE := true
 
+# TODO: build wpa_supplicant from source
+#BOARD_WLAN_DEVICE := MediaTek
+
 # Connectivity modules
 BOARD_VENDOR_KERNEL_MODULES += \
     $(DEVICE_PATH)/prebuilts/modules/wmt_drv.ko \
@@ -90,8 +93,7 @@ BOARD_VENDOR_KERNEL_MODULES += \
     $(DEVICE_PATH)/prebuilts/modules/wmt_chrdev_wifi.ko
 
 # HIDL
-DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
-# DEVICE_MATRIX_FILE += $(DEVICE_PATH)/compatibility_matrix.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/configs/vintf/manifest.xml
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/recovery.fstab
@@ -103,8 +105,6 @@ BOARD_AVB_ENABLE := true
 BOARD_AVB_ALGORITHM := SHA256_RSA2048
 BOARD_AVB_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
-
-TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
 # Include vendor
 -include vendor/lge/mmh4/BoardConfigVendor.mk

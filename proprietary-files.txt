@@ -21,9 +21,22 @@ vendor/lib/hw/vendor.mediatek.hardware.power@2.0-impl.so
 vendor/lib/vendor.mediatek.hardware.power@2.0.so
 vendor/lib/vendor.mediatek.hardware.power@1.1.so
 
-#vendor/bin/hw/android.hardware.graphics.allocator@2.0-service
-#vendor/etc/init/android.hardware.graphics.allocator@2.0-service.rc
-#vendor/lib/hw/android.hardware.graphics.allocator@2.0-impl.so
+# Connectivity
+vendor/etc/init/init_connectivity.rc
+vendor/bin/wmt_concurrency
+vendor/bin/wmt_fdb
+vendor/bin/wmt_launcher
+vendor/bin/wmt_loader
+vendor/bin/wmt_loopback
+vendor/etc/init/init.wmt_drv.rc
+vendor/etc/init/init.wmt_drv.rc
+vendor/etc/wifi/GLOBAL/WMT_SOC.cfg
+vendor/etc/wifi/KR_ALL/WMT_SOC.cfg
+vendor/etc/wifi/WMT_SOC.cfg
+vendor/firmware/WMT_SOC.cfg
+vendor/lib/libtc1part.so
+vendor/lib/libtc1rft.so
+
 
 # Power
 vendor/lib/libpowerhal.so
@@ -35,12 +48,49 @@ vendor/lib/hw/lights.mt6765.so
 # Sensors
 vendor/lib/sensors.mtk.so
 vendor/lib/libksensor.so
+vendor/lib/libaf6133.so
 vendor/lib/libsensor_custom.so
 vendor/lib/libsensor_lge_cal.so
 vendor/lib/librgbwlightsensor.so
 vendor/lib/hw/android.hardware.sensors@1.0-impl-mediatek.so
 vendor/bin/hw/android.hardware.sensors@1.0-service-mediatek
 vendor/etc/init/android.hardware.sensors@1.0-service-mediatek.rc
+
+# SecureElement
+vendor/bin/hw/android.hardware.secure_element@1.0-service-mediatek
+vendor/bin/hw/vendor.lge.hardware.nfc@1.1-service
+vendor/bin/nfc_vendor_script
+vendor/etc/init/android.hardware.secure_element@1.0-service-mediatek.rc
+vendor/etc/init/init.nfc.vendor.rc
+vendor/etc/init/vendor.lge.hardware.nfc@1.1-service.rc
+vendor/etc/libnfc-nci.conf
+vendor/etc/libnfc-nxp-KR.conf
+vendor/etc/libnfc-nxp-lg.conf
+vendor/etc/libnfc-nxp.conf
+vendor/etc/nfc/PublicKey.txt
+vendor/etc/nfc/config.xml
+vendor/etc/nfc/config_AU.xml
+vendor/etc/nfc/config_CA.xml
+vendor/etc/nfc/config_CN.xml
+vendor/etc/nfc/config_CO.xml
+vendor/etc/nfc/config_COM.xml
+vendor/etc/nfc/config_HK.xml
+vendor/etc/nfc/config_IL.xml
+vendor/etc/nfc/config_JP.xml
+vendor/etc/nfc/config_KR.xml
+vendor/etc/nfc/config_LDU.xml
+vendor/etc/nfc/config_NZ.xml
+vendor/etc/nfc/config_PL.xml
+vendor/etc/nfc/config_US.xml
+vendor/etc/nfc/config_nfc.xml
+vendor/etc/nfc/config_nfcopen.xml
+vendor/etc/nfc/target_list.xml
+vendor/firmware/libpn553_fw.so
+vendor/lib/hw/nfc_lg.default.so
+vendor/lib/hw/vendor.lge.hardware.nfc@1.1-impl.so
+vendor/lib/libLGnfc_config_vendor.so
+vendor/lib/vendor.lge.hardware.nfc@1.0.so
+vendor/lib/vendor.lge.hardware.nfc@1.1.so
 
 # Thermal
 vendor/lib/vendor.lge.hardware.thermal@1.0.so
@@ -158,7 +208,6 @@ vendor/etc/media_codecs_mediatek_audio.xml
 vendor/etc/media_codecs_mediatek_video.xml
 vendor/etc/media_codecs_performance.xml
 vendor/etc/media_profiles_V1_0.xml
-vendor/etc/permissions/android.hardware.audio.low_latency.xml
 vendor/etc/r_submix_audio_policy_configuration.xml
 vendor/etc/usb_audio_policy_configuration.xml
 vendor/lib/hw/android.hardware.audio@4.0-impl-mediatek.so
@@ -225,16 +274,97 @@ vendor/lib/hw/vendor.mediatek.hardware.nvram@1.1-impl.so
 vendor/lib/liblgpart.so
 
 # CCCI
+vendor/lib/libstorage_otp.so
+vendor/lib/libsysenv.so
 vendor/bin/ccci_fsd
 vendor/bin/ccci_mdinit
 vendor/bin/ccci_rpcd
+vendor/bin/em_hidl
+vendor/bin/eut_init
+vendor/bin/factory
+vendor/bin/flashlessd
+vendor/bin/frstd
+vendor/bin/gsm0710muxd
+vendor/bin/hw/mtkfusionrild
+vendor/bin/hw/rild
+vendor/bin/hw/vendor.lge.hardware.lgatcmd@1.0-service
+vendor/bin/hw/vendor.lge.hardware.vss_ims@1.0-service
+vendor/bin/hw/vendor.mediatek.hardware.mms@1.5-service
+vendor/bin/latd
+vendor/bin/lgerfttest
+vendor/bin/meta_tst
+vendor/bin/muxreport
+vendor/bin/rttv
+vendor/etc/init/em_hidl_user.rc
+vendor/etc/init/factory/init.lge.atd.rc
+vendor/etc/init/factory/init.miniOS.aat.rc
+vendor/etc/init/factory/init.miniOS.atd.rc
+vendor/etc/init/factory/init.miniOS.config.rc
+vendor/etc/init/factory/init.miniOS.h20.rc
+vendor/etc/init/factory/init.miniOS.h30.rc
+vendor/etc/init/factory/init.miniOS.mfts.rc
+vendor/etc/init/factory/init.miniOS.pre_selfde.rc
+vendor/etc/init/factory/init.miniOS.selfd.rc
+vendor/etc/init/factory/init.miniOS.service.rc
+vendor/etc/init/factory/init.miniOS.taio.rc
+vendor/etc/init/gsm0710muxd.rc
+vendor/etc/init/hw/factory_init.connectivity.rc
+vendor/etc/init/hw/factory_init.project.rc
+vendor/etc/init/hw/factory_init.rc
+vendor/etc/init/hw/init.modem.rc
+vendor/etc/init/hw/meta_init.modem.rc
 vendor/etc/init/init.cccifsd.rc
 vendor/etc/init/init.cccimdinit.rc
 vendor/etc/init/init.cccirpcd.rc
-vendor/lib/libccci_util.so
-vendor/lib/libstorage_otp.so
-vendor/lib/libsysenv.so
+vendor/etc/init/muxreport.rc
+vendor/etc/init/rild.legacy.rc
+vendor/etc/init/rild.rc
+vendor/etc/init/vendor.lge.hardware.lgatcmd@1.0-service.rc
+vendor/etc/init/vendor.lge.hardware.vss_ims@1.0-service.rc
+vendor/etc/init/vendor.mediatek.hardware.mms@1.5-service.rc
+vendor/lib/hw/vendor.lge.hardware.lgatcmd@1.0-impl.so
+vendor/lib/hw/vendor.lge.hardware.vss_ims@1.0-impl.so
+vendor/lib/hw/vendor.mediatek.hardware.mms@1.5-impl.so
+vendor/lib/libMtkOmxGsmDec.so
+vendor/lib/libasn1c_core_vendor.so
+vendor/lib/libasn1c_mapi_vendor.so
+vendor/lib/libasn1c_mdmi_vendor.so
+vendor/lib/libatd_common.so
+vendor/lib/libatd_corelib.so
+vendor/lib/libatd_modeminterface.so
+vendor/lib/libc2kutils.so
 vendor/lib/libccci_tc1_srv.so
+vendor/lib/libccci_util.so
+vendor/lib/libmtk-ril.so
+vendor/lib/libratconfig.so
+vendor/lib/libreference-ril.so
+vendor/lib/libril.so
+vendor/lib/libril_wrapper.so
+vendor/lib/librilfusion.so
+vendor/lib/librilutils.so
+vendor/lib/librilutilsmtk.so
+vendor/lib/libuicc_vendor.so
+vendor/lib/libvia-ril.so
+vendor/lib/libvssims-impl-mtk.so
+vendor/lib/libvt_custom.so
+vendor/lib/vendor.lge.hardware.lgatcmd@1.0.so
+vendor/lib/vendor.lge.hardware.radio@1.0.so
+vendor/lib/vendor.lge.hardware.radio@1.1.so
+vendor/lib/vendor.lge.hardware.radio@1.2.so
+vendor/lib/vendor.lge.hardware.vss_ims@1.0.so
+vendor/lib/vendor.mediatek.hardware.interfaces_tc1.radio_tc1@3.0.so
+vendor/lib/vendor.mediatek.hardware.interfaces_tc1.radio_tc1@3.1.so
+vendor/lib/vendor.mediatek.hardware.interfaces_tc1.radio_tc1@3.2.so
+vendor/lib/vendor.mediatek.hardware.interfaces_tc1.radio_tc1@3.3.so
+vendor/lib/vendor.mediatek.hardware.interfaces_tc1.radio_tc1@3.4.so
+vendor/lib/vendor.mediatek.hardware.interfaces_tc1.radio_tc1@3.5.so
+vendor/lib/vendor.mediatek.hardware.interfaces_tc1.radio_tc1@3.6.so
+vendor/lib/vendor.mediatek.hardware.mms@1.0.so
+vendor/lib/vendor.mediatek.hardware.mms@1.1.so
+vendor/lib/vendor.mediatek.hardware.mms@1.2.so
+vendor/lib/vendor.mediatek.hardware.mms@1.3.so
+vendor/lib/vendor.mediatek.hardware.mms@1.4.so
+vendor/lib/vendor.mediatek.hardware.mms@1.5.so
 
 # Media Codecs
 #vendor/bin/hw/android.hardware.media.omx@1.0-service
@@ -319,8 +449,6 @@ vendor/bin/wfca_legacy
 vendor/etc/init/android.hardware.bluetooth@1.0-service-mediatek.rc
 vendor/etc/init/init.bt_drv.rc
 vendor/etc/init/init.wfca.rc
-vendor/etc/permissions/android.hardware.bluetooth.xml
-vendor/etc/permissions/android.hardware.bluetooth_le.xml
 vendor/lib/hw/android.hardware.bluetooth@1.0-impl-mediatek.so
 vendor/lib/libbluedroid_bdt.so
 vendor/lib/libbluetooth_hw_test.so
@@ -331,12 +459,11 @@ vendor/lib/libbluetoothem_mtk.so
 vendor/lib/libbt-vendor.so
 vendor/lib/libcvsd_mtk.so
 vendor/lib/libmsbc_mtk.so
-vendor/lib/modules/bt_drv.ko
 
 # Wifi
-vendor/bin/hostapd_cli
+#vendor/bin/hostapd_cli
 vendor/bin/hw/android.hardware.wifi@1.0-service-mediatek
-vendor/bin/hw/hostapd
+#vendor/bin/hw/hostapd
 vendor/bin/hw/vendor.lge.hardware.wifi.hal@1.0-service
 vendor/bin/hw/wlan_ril
 vendor/bin/hw/wpa_supplicant
@@ -345,14 +472,12 @@ vendor/bin/wififtmd
 vendor/bin/wlan_assistant
 vendor/bin/wpa_cli
 vendor/etc/init/android.hardware.wifi@1.0-service-mediatek.rc
-vendor/etc/init/hostapd.android.rc
+#vendor/etc/init/hostapd.android.rc
 vendor/etc/init/init.wifi.rc
 vendor/etc/init/init.wifi.runtime.rc
 vendor/etc/init/init.wlan_drv.rc
 vendor/etc/init/vendor.lge.hardware.wifi.hal@1.0-service.rc
 vendor/etc/init/wlan_assistant.rc
-vendor/etc/permissions/android.hardware.wifi.direct.xml
-vendor/etc/permissions/android.hardware.wifi.xml
 vendor/etc/wifi/GLOBAL/WIFI
 vendor/etc/wifi/GLOBAL/txpowerctrl.cfg
 vendor/etc/wifi/GLOBAL/wifi.cfg
@@ -361,15 +486,10 @@ vendor/etc/wifi/KR_ALL/txpowerctrl.cfg
 vendor/etc/wifi/KR_ALL/wifi.cfg
 vendor/etc/wifi/PerProviderSubscription.conf
 vendor/etc/wifi/WIFI
-vendor/etc/wifi/p2p_supplicant.conf
-vendor/etc/wifi/p2p_supplicant_overlay.conf
 vendor/etc/wifi/txpowerctrl.cfg
 vendor/etc/wifi/wifi.cfg
-vendor/etc/wifi/wpa_supplicant.conf
-vendor/etc/wifi/wpa_supplicant_overlay.conf
 vendor/firmware/WIFI_RAM_CODE_soc1_0_1_1.bin
 vendor/firmware/soc1_0_ram_wifi_1_1_hdr.bin
-#vendor/firmware/wifi.cfg
 vendor/lib/libicuuc_wlan.so
 vendor/lib/libwifi-hal.so
 vendor/lib/libwifitest.so
@@ -379,6 +499,7 @@ vendor/lib/vendor.lge.hardware.wifi.hostapd@1.0.so
 vendor/lib/vendor.lge.hardware.wifi.supplicant@1.0.so
 vendor/lib/vendor.lge.hardware.wifi.supplicant@2.0.so
 
-
-
-
+# LGE misc
+vendor/lib/liblgpclient_jni.so
+vendor/lib/liblgftmitem.so
+vendor/lib/libunified_sysfs_pm.so

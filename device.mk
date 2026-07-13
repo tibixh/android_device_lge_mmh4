@@ -14,17 +14,63 @@
 # limitations under the License.
 #
 
+# Inherit dalvik heap values
+$(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
+
+# Generic Hardware Enablement Permissions
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.audio.low_latency.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.low_latency.xml \
+    frameworks/native/data/etc/android.hardware.bluetooth.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth.xml \
+    frameworks/native/data/etc/android.hardware.bluetooth_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth_le.xml \
+    frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.flash-autofocus.xml \
+    frameworks/native/data/etc/android.hardware.camera.front.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.front.xml \
+    frameworks/native/data/etc/android.hardware.faketouch.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.faketouch.xml \
+    frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml \
+    frameworks/native/data/etc/android.hardware.location.gps.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.location.gps.xml \
+    frameworks/native/data/etc/android.hardware.nfc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.xml \
+    frameworks/native/data/etc/android.hardware.nfc.hce.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.hce.xml \
+    frameworks/native/data/etc/android.hardware.nfc.hcef.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.hcef.xml \
+    frameworks/native/data/etc/android.hardware.opengles.aep.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.opengles.aep.xml \
+    frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.accelerometer.xml \
+    frameworks/native/data/etc/android.hardware.sensor.light.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.light.xml \
+    frameworks/native/data/etc/android.hardware.sensor.proximity.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.proximity.xml \
+    frameworks/native/data/etc/android.hardware.telephony.cdma.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.cdma.xml \
+    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.gsm.xml \
+    frameworks/native/data/etc/android.hardware.touchscreen.multitouch.distinct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.touchscreen.multitouch.distinct.xml \
+    frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
+    frameworks/native/data/etc/android.hardware.touchscreen.multitouch.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.touchscreen.multitouch.xml \
+    frameworks/native/data/etc/android.hardware.touchscreen.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.touchscreen.xml \
+    frameworks/native/data/etc/android.hardware.usb.accessory.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.accessory.xml \
+    frameworks/native/data/etc/android.hardware.usb.host.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.host.xml \
+    frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml \
+    frameworks/native/data/etc/android.hardware.wifi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.xml \
+    frameworks/native/data/etc/android.software.midi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.midi.xml \
+    frameworks/native/data/etc/android.software.verified_boot.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.verified_boot.xml \
+    frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml
+
+# Overlays
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+
 # Recovery init
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/init/init.recovery.mt6765.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.mmh4.rc
 
-# Init
+# HW Init
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/init/init.mmh4.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.mmh4.rc \
 	$(LOCAL_PATH)/configs/init/init.mt6765.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.mt6765.rc \
 	$(LOCAL_PATH)/configs/init/init.mt6765_core.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.mt6765_core.rc \
 	$(LOCAL_PATH)/configs/init/init.lge.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.lge.usb.rc \
 	$(LOCAL_PATH)/configs/init/init.lge.usb.configfs.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.lge.usb.configfs.rc \
+    $(LOCAL_PATH)/configs/init/init.mmh4.sensors_vendor.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.mmh4.sensors.vendor.rc \
+    $(LOCAL_PATH)/configs/init/init.sensor_1_0.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.sensor_1_0.rc \
+    $(LOCAL_PATH)/configs/init/init.project.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.project.rc \
+    $(LOCAL_PATH)/configs/init/init.modem.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.modem.rc \
+    $(LOCAL_PATH)/configs/init/init.mmh4.vendor.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.mmh4.vendor.rc \
+    $(LOCAL_PATH)/configs/init/init.mmh4_vendor.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.mmh4_vendor.rc \
+    $(LOCAL_PATH)/configs/init/init.mmh4.fingerprints_vendor.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.mmh4.fingerprints_vendor.rc \
+    $(LOCAL_PATH)/configs/init/init.connectivity.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.connectivity.rc \
+    $(LOCAL_PATH)/configs/init/init.aee.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.aee.rc
 
 # Fstab
 PRODUCT_COPY_FILES += \
@@ -32,10 +78,12 @@ PRODUCT_COPY_FILES += \
 
 # Ueventd
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/rootdir/ueventd.mmh4:$(TARGET_COPY_OUT_VENDOR)/ueventd.mmh4
+    $(LOCAL_PATH)/rootdir/ueventd.mmh4.rc:$(TARGET_COPY_OUT_VENDOR)/ueventd.rc
 
 # Display
 PRODUCT_PACKAGES += \
+    android.hardware.graphics.allocator@2.0-impl \
+    android.hardware.graphics.allocator@2.0-service \
     android.hardware.graphics.mapper@2.0-impl \
     android.hardware.graphics.composer@2.1-service \
     android.hardware.graphics.composer@2.1-resources \
@@ -56,17 +104,81 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.0-service \
     android.hardware.health@2.0-impl
 
+# USB
+PRODUCT_PACKAGES += \
+    android.hardware.usb@1.1
+
+# Gatekeeper
+PRODUCT_PACKAGES += \
+    android.hardware.gatekeeper@1.0-impl \
+    android.hardware.gatekeeper@1.0-service
+
+# Keymaster
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster@3.0-impl \
+    android.hardware.keymaster@3.0-service
+
+# Sensors
+PRODUCT_PACKAGES += \
+    libsensorndkbridge
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
+
+# Thermal
+PRODUCT_PACKAGES += \
+    android.hardware.thermal@1.0-impl \
+    android.hardware.thermal@1.0-service
+
+# USB
+PRODUCT_PACKAGES += \
+    android.hardware.usb@1.1-service.vendor
+
+# Lights
+PRODUCT_PACKAGES += \
+    android.hardware.light@2.0-impl \
+    android.hardware.light@2.0-service
+
+# Vibrator
+PRODUCT_PACKAGES += \
+    android.hardware.vibrator@1.0-impl \
+    android.hardware.vibrator@1.0-service
+
 # HIDL
 PRODUCT_PACKAGES += \
+    libhidltransport \
+    libhidlbase \
     android.hidl.base@1.0 \
     android.hidl.manager@1.0
+
+# Camera
+PRODUCT_PACKAGES += \
+    Camera2
+
+# Codec and OMX packages
+PRODUCT_COPY_FILES += \
+    frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_audio.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video.xml
+
+# Wifi
+PRODUCT_PACKAGES += \
+    libkeystore-wifi-hidl \
+    libkeystore-engine-wifi-hidl \
+    hostapd
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/wifi/p2p_supplicant.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant.conf \
+    $(LOCAL_PATH)/configs/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
+    $(LOCAL_PATH)/configs/wifi/wpa_supplicant.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant.conf \
+    $(LOCAL_PATH)/configs/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf
 
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio@4.0-impl \
-    android.hardware.audio@4.0 \
     android.hardware.audio.effect@4.0-impl \
     android.hardware.audio.common@4.0 \
+    android.hardware.media.omx@1.0-service \
+    android.hardware.audio.effect@4.0-impl \
     libalsautils \
     libaacwrapper \
     libaudio-resampler \
@@ -74,8 +186,24 @@ PRODUCT_PACKAGES += \
     libqcomvoiceprocessing \
     libqcompostprocbundle \
     tinymix \
+    libtinyxml \
+    libnbaio_mono \
+    audio_policy.stub \
+    libeffects \
+    libeffectsconfig \
+    libgui_vendor \
     libtinycompress \
-    libtinyxml
+    libwebrtc_audio_preprocessing \
+    libwifi-hal \
+    libaudiopreprocessing \
+    libbundlewrapper \
+    libdownmix \
+    libdynproc \
+    libeffectproxy \
+    libldnhncr \
+    libreverbwrapper \
+    libvisualizer
+    
 
 PRODUCT_COPY_FILES += \
 	$(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/audio_param/,$(TARGET_COPY_OUT_VENDOR)/etc/audio_param) \
@@ -95,6 +223,9 @@ PRODUCT_SOONG_NAMESPACES += \
 # Display
 TARGET_SCREEN_WIDTH := 720
 TARGET_SCREEN_HEIGHT := 1440
+
+# Device properties
+$(call inherit-product-if-exists, $(LOCAL_PATH)/props.mk)
 
 # Call proprietary blob setup
 $(call inherit-product-if-exists, vendor/lge/mmh4/mmh4-vendor.mk)

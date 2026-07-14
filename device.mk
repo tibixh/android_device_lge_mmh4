@@ -80,7 +80,7 @@ PRODUCT_COPY_FILES += \
 
 # Ueventd
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/ueventd.mmh4.rc:$(TARGET_COPY_OUT_VENDOR)/ueventd.rc
+    $(LOCAL_PATH)/rootdir/ueventd.rc:$(TARGET_COPY_OUT_VENDOR)/ueventd.rc
 
 # Display
 PRODUCT_PACKAGES += \

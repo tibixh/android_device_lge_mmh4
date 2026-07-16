@@ -5,7 +5,7 @@
 # Android Native
 /dev/block/platform/bootdevice/by-name/system                        /                     ext4 ro wait,slotselect,verify,recoveryonly
 /dev/block/platform/bootdevice/by-name/vendor                        /vendor               ext4 ro wait,slotselect,verify,recoveryonly
-/dev/block/platform/bootdevice/by-name/userdata                      /data                 ext4 noatime,nosuid,nodev,noauto_da_alloc,errors=panic         wait,check,formattable,quota,reservedsize=128M
+/dev/block/platform/bootdevice/by-name/userdata                      /data                 ext4 noatime,nosuid,nodev,noauto_da_alloc,errors=panic         wait,check,formattable,forceencrypt=/dev/block/platform/bootdevice/by-name/encrypt,quota,reservedsize=128M
 /dev/block/platform/bootdevice/by-name/protect1                      /mnt/vendor/protect_f     ext4 noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc  wait,check,formattable
 /dev/block/platform/bootdevice/by-name/protect2                      /mnt/vendor/protect_s     ext4 noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc  wait,check,formattable
 /dev/block/platform/bootdevice/by-name/nvdata                        /mnt/vendor/nvdata        ext4 noatime,nosuid,nodev,noauto_da_alloc,discard              wait,check,formattable

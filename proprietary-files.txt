@@ -34,6 +34,10 @@ vendor/lib/libtc1rft.so
 # NFC
 vendor/firmware/libpn553_fw.so
 
+# Secure element
+vendor/bin/hw/android.hardware.secure_element@1.0-service-mediatek
+vendor/etc/init/android.hardware.secure_element@1.0-service-mediatek.rc
+
 # Sensors
 vendor/lib/sensors.mtk.so
 vendor/lib/libksensor.so

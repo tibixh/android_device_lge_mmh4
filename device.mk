@@ -110,6 +110,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.1
 
+# DRM
+# PRODUCT_PACKAGES += \
+#     android.hardware.drm@1.0-service \
+#     android.hardware.drm@1.1-service.clearkey \
+#     android.hardware.drm@1.1-service.widevine
+
 # Gatekeeper
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-impl \
@@ -159,6 +165,20 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video.xml
 
+# NFC
+PRODUCT_PACKAGES += \
+    android.hardware.nfc@1.1-service \
+    android.hardware.secure_element@1.1.vendor \
+    com.android.nfc_extras \
+    libchrome.vendor \
+    NfcNci \
+    SecureElement \
+    Tag
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf \
+    $(LOCAL_PATH)/configs/nfc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf
+
 # Wifi
 PRODUCT_PACKAGES += \
     libkeystore-wifi-hidl \
@@ -173,7 +193,6 @@ PRODUCT_COPY_FILES += \
 
 # Audio
 PRODUCT_PACKAGES += \
-    android.hardware.audio@4.0-impl \
     android.hardware.audio.effect@4.0-impl \
     android.hardware.audio.common@4.0 \
     android.hardware.media.omx@1.0-service \
@@ -201,8 +220,7 @@ PRODUCT_PACKAGES += \
     libeffectproxy \
     libldnhncr \
     libreverbwrapper \
-    libvisualizer
-    
+    libvisualizer 
 
 PRODUCT_COPY_FILES += \
 	$(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/audio_param/,$(TARGET_COPY_OUT_VENDOR)/etc/audio_param) \
@@ -214,6 +232,17 @@ PRODUCT_COPY_FILES += \
 	frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml \
 	frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
 	frameworks/av/services/audiopolicy/config/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml
+
+# RIL
+# PRODUCT_PACKAGES += \
+#     android.hardware.broadcastradio@1.0 \
+#     android.hardware.broadcastradio@1.1 \
+#     android.hardware.radio@1.0 \
+#     android.hardware.radio@1.1 \
+#     android.hardware.radio@1.2 \
+#     android.hardware.radio.config@1.1 \
+#     android.hardware.radio.config@1.2 \
+#     android.hardware.radio.deprecated@1.0
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \

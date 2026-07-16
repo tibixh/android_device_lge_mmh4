@@ -14,12 +14,6 @@ vendor/lib/hw/vendor.mediatek.hardware.pq@2.2-impl.so
 vendor/lib/vendor.mediatek.hardware.pq@2.2.so
 vendor/lib/vendor.mediatek.hardware.pq@2.1.so
 vendor/lib/vendor.mediatek.hardware.pq@2.0.so
-vendor/bin/hw/vendor.mediatek.hardware.power@2.0-service
-vendor/etc/init/vendor.mediatek.hardware.power@2.0-init.rc
-vendor/etc/init/vendor.mediatek.hardware.power@2.0-service.rc
-vendor/lib/hw/vendor.mediatek.hardware.power@2.0-impl.so
-vendor/lib/vendor.mediatek.hardware.power@2.0.so
-vendor/lib/vendor.mediatek.hardware.power@1.1.so
 
 # Connectivity
 vendor/etc/init/init_connectivity.rc
@@ -37,13 +31,8 @@ vendor/firmware/WMT_SOC.cfg
 vendor/lib/libtc1part.so
 vendor/lib/libtc1rft.so
 
-
-# Power
-vendor/lib/libpowerhal.so
-vendor/lib/libpowerhalwrap_vendor.so
-
-# Lights
-vendor/lib/hw/lights.mt6765.so
+# NFC
+vendor/firmware/libpn553_fw.so
 
 # Sensors
 vendor/lib/sensors.mtk.so
@@ -56,55 +45,26 @@ vendor/lib/hw/android.hardware.sensors@1.0-impl-mediatek.so
 vendor/bin/hw/android.hardware.sensors@1.0-service-mediatek
 vendor/etc/init/android.hardware.sensors@1.0-service-mediatek.rc
 
-# SecureElement
-vendor/bin/hw/android.hardware.secure_element@1.0-service-mediatek
-vendor/bin/hw/vendor.lge.hardware.nfc@1.1-service
-vendor/bin/nfc_vendor_script
-vendor/etc/init/android.hardware.secure_element@1.0-service-mediatek.rc
-vendor/etc/init/init.nfc.vendor.rc
-vendor/etc/init/vendor.lge.hardware.nfc@1.1-service.rc
-vendor/etc/libnfc-nci.conf
-vendor/etc/libnfc-nxp-KR.conf
-vendor/etc/libnfc-nxp-lg.conf
-vendor/etc/libnfc-nxp.conf
-vendor/etc/nfc/PublicKey.txt
-vendor/etc/nfc/config.xml
-vendor/etc/nfc/config_AU.xml
-vendor/etc/nfc/config_CA.xml
-vendor/etc/nfc/config_CN.xml
-vendor/etc/nfc/config_CO.xml
-vendor/etc/nfc/config_COM.xml
-vendor/etc/nfc/config_HK.xml
-vendor/etc/nfc/config_IL.xml
-vendor/etc/nfc/config_JP.xml
-vendor/etc/nfc/config_KR.xml
-vendor/etc/nfc/config_LDU.xml
-vendor/etc/nfc/config_NZ.xml
-vendor/etc/nfc/config_PL.xml
-vendor/etc/nfc/config_US.xml
-vendor/etc/nfc/config_nfc.xml
-vendor/etc/nfc/config_nfcopen.xml
-vendor/etc/nfc/target_list.xml
-vendor/firmware/libpn553_fw.so
-vendor/lib/hw/nfc_lg.default.so
-vendor/lib/hw/vendor.lge.hardware.nfc@1.1-impl.so
-vendor/lib/libLGnfc_config_vendor.so
-vendor/lib/vendor.lge.hardware.nfc@1.0.so
-vendor/lib/vendor.lge.hardware.nfc@1.1.so
-
 # Thermal
 vendor/lib/vendor.lge.hardware.thermal@1.0.so
 
 # Power
+vendor/bin/hw/vendor.mediatek.hardware.power@2.0-service
+vendor/etc/init/vendor.mediatek.hardware.power@2.0-init.rc
+vendor/etc/init/vendor.mediatek.hardware.power@2.0-service.rc
+vendor/lib/hw/vendor.mediatek.hardware.power@2.0-impl.so
+vendor/lib/vendor.mediatek.hardware.power@2.0.so
+vendor/lib/vendor.mediatek.hardware.power@1.1.so
 vendor/lib/hw/power.mt6765.so
 vendor/lib/hw/power.mmh4.so
+vendor/lib/libfpspolicy.so
+vendor/lib/libpowerhal.so
+vendor/lib/libpowerhalwrap_vendor.so
 
 # Gatekeeper
 vendor/lib/hw/gatekeeper.mmh4.so
 vendor/lib/hw/gatekeeper.mt6765.so
 vendor/lib/hw/libMcGatekeeper.so
-#vendor/bin/hw/android.hardware.gatekeeper@1.0-service
-#vendor/etc/init/android.hardware.gatekeeper@1.0-service.rc
 
 # Fuelgauge
 vendor/bin/fuelgauged
@@ -114,9 +74,9 @@ vendor/etc/init/fuelgauged_nvram_init.rc
 vendor/lib/libfgauge_gm30.so
 
 # Keystore
-#vendor/lib/hw/keystore.mmh4.so
-#vendor/lib/hw/keystore.mt6765.so
-#vendor/lib/hw/libMcTeeKeymaster.so
+vendor/lib/hw/keystore.mmh4.so
+vendor/lib/hw/keystore.mt6765.so
+vendor/lib/hw/libMcTeeKeymaster.so
 
 # TEE
 vendor/bin/mcDriverDaemon
@@ -130,9 +90,17 @@ vendor/lib/vendor.trustonic.tee@1.0.so
 vendor/bin/hw/vendor.trustonic.teeregistry@1.0-service
 vendor/bin/hw/vendor.trustonic.tee@1.0-service
 vendor/etc/init/tee.rc
-vendor/etc/init/vendor.trustonic.tee@1.0-service.rc
-vendor/etc/init/vendor.trustonic.teeregistry@1.0-service.rc
 vendor/lib/hw/kmsetkey.trustonic.so 
+vendor/bin/KmInstallKeybox_mtk
+vendor/bin/KmVerifyKeybox_mtk
+vendor/etc/cmp_genbindinkey.bin
+vendor/etc/init/trustonic.rc
+vendor/lib/hw/libSoftGatekeeper.so
+vendor/lib/libTBaseProvisioningAT.so
+vendor/lib/libTEECommon.so
+vendor/lib/libkmsetkey.so
+vendor/lib/liblic_divx.so
+vendor/lib/libwvhidl.so
 vendor/app/mcRegistry/020f0000000000000000000000000000.drbin
 vendor/app/mcRegistry/020f0000000000000000000000000000.tlbin
 vendor/app/mcRegistry/030b0000000000000000000000000000.drbin
@@ -365,6 +333,10 @@ vendor/lib/vendor.mediatek.hardware.mms@1.2.so
 vendor/lib/vendor.mediatek.hardware.mms@1.3.so
 vendor/lib/vendor.mediatek.hardware.mms@1.4.so
 vendor/lib/vendor.mediatek.hardware.mms@1.5.so
+vendor/lib/libpcas.so
+vendor/lib/libpcas_vendor.so
+vendor/lib/libpatchcodeid.so
+vendor/lib/libpatchcodeid_vendor.so
 
 # Media Codecs
 #vendor/bin/hw/android.hardware.media.omx@1.0-service

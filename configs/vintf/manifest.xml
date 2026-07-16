@@ -144,6 +144,16 @@
         <fqname>@2.0::IHealth/default</fqname>
     </hal>
     <hal format="hidl">
+        <name>android.hardware.nfc</name>
+        <transport>hwbinder</transport>
+        <version>1.1</version>
+        <interface>
+            <name>INfc</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.1::INfc/default</fqname>
+    </hal>
+    <hal format="hidl">
         <name>android.hardware.keymaster</name>
         <transport>hwbinder</transport>
         <version>3.0</version>
@@ -316,36 +326,6 @@
         <fqname>@1.0::ITransport/default</fqname>
     </hal>
     <hal format="hidl">
-        <name>vendor.lge.hardware.accessory</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IAccessory</name>
-            <instance>default</instance>
-        </interface>
-        <fqname>@1.0::IAccessory/default</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.lge.hardware.accessory.uevent</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IAccessoryUevent</name>
-            <instance>default</instance>
-        </interface>
-        <fqname>@1.0::IAccessoryUevent/default</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.lge.hardware.battery</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IBattery</name>
-            <instance>default</instance>
-        </interface>
-        <fqname>@1.0::IBattery/default</fqname>
-    </hal>
-    <hal format="hidl">
         <name>vendor.lge.hardware.biometrics.fingerprint</name>
         <transport>hwbinder</transport>
         <fqname>@2.1::ILgeBiometricsFingerprint/default</fqname>
@@ -371,31 +351,6 @@
         <fqname>@1.0::ICharger/default</fqname>
     </hal>
     <hal format="hidl">
-        <name>vendor.lge.hardware.configstore</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>ICodecParserConfigs</name>
-            <instance>default</instance>
-        </interface>
-        <interface>
-            <name>IConfigStore</name>
-            <instance>default</instance>
-        </interface>
-        <interface>
-            <name>IGlobalConfigs</name>
-            <instance>default</instance>
-        </interface>
-        <interface>
-            <name>IPowerConfigs</name>
-            <instance>default</instance>
-        </interface>
-        <fqname>@1.0::ICodecParserConfigs/default</fqname>
-        <fqname>@1.0::IConfigStore/default</fqname>
-        <fqname>@1.0::IGlobalConfigs/default</fqname>
-        <fqname>@1.0::IPowerConfigs/default</fqname>
-    </hal>
-    <hal format="hidl">
         <name>vendor.lge.hardware.data</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
@@ -404,46 +359,6 @@
             <instance>default</instance>
         </interface>
         <fqname>@1.0::IData/default</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.lge.hardware.display.brightness</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IDisplayBrightness</name>
-            <instance>default</instance>
-        </interface>
-        <fqname>@1.0::IDisplayBrightness/default</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.lge.hardware.display.general</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IDisplayGeneral</name>
-            <instance>default</instance>
-        </interface>
-        <fqname>@1.0::IDisplayGeneral/default</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.lge.hardware.display.tune</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IDisplayTune</name>
-            <instance>default</instance>
-        </interface>
-        <fqname>@1.0::IDisplayTune/default</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.lge.hardware.display.uevent</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IDisplayUevent</name>
-            <instance>default</instance>
-        </interface>
-        <fqname>@1.0::IDisplayUevent/default</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.lge.hardware.fido</name>
@@ -553,16 +468,6 @@
         <fqname>@1.2::ILgeRadio/radio1_wifi</fqname>
     </hal>
     <hal format="hidl">
-        <name>vendor.lge.hardware.sdcardtray</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>ISDCardTray</name>
-            <instance>default</instance>
-        </interface>
-        <fqname>@1.0::ISDCardTray/default</fqname>
-    </hal>
-    <hal format="hidl">
         <name>vendor.lge.hardware.securefuse</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
@@ -571,21 +476,6 @@
             <instance>default</instance>
         </interface>
         <fqname>@1.0::ISecureFuse/default</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.lge.hardware.sensortest</name>
-        <transport>hwbinder</transport>
-        <fqname>@1.0::ISensorTest/default</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.lge.hardware.storageinfo</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IStorageInfo</name>
-            <instance>default</instance>
-        </interface>
-        <fqname>@1.0::IStorageInfo/default</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.lge.hardware.thermal</name>

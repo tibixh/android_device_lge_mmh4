@@ -65,11 +65,6 @@ vendor/lib/libfpspolicy.so
 vendor/lib/libpowerhal.so
 vendor/lib/libpowerhalwrap_vendor.so
 
-# Gatekeeper
-vendor/lib/hw/gatekeeper.mmh4.so
-vendor/lib/hw/gatekeeper.mt6765.so
-vendor/lib/hw/libMcGatekeeper.so
-
 # Fuelgauge
 vendor/bin/fuelgauged
 vendor/bin/fuelgauged_nvram
@@ -77,8 +72,11 @@ vendor/etc/init/fuelgauged_init.rc
 vendor/etc/init/fuelgauged_nvram_init.rc
 vendor/lib/libfgauge_gm30.so
 
+# Gatekeeper
+vendor/lib/hw/gatekeeper.mt6765.so
+vendor/lib/hw/libMcGatekeeper.so
+
 # Keystore
-vendor/lib/hw/keystore.mmh4.so
 vendor/lib/hw/keystore.mt6765.so
 vendor/lib/hw/libMcTeeKeymaster.so
 
@@ -126,7 +124,6 @@ vendor/app/mcRegistry/08882000000000000000000000000000.tlbin
 vendor/app/mcRegistry/09190000000000000000000000000000.tlbin
 vendor/app/mcRegistry/125f65b5f10453e7a81300366c4d63c1.tabin
 vendor/app/mcRegistry/4c474d4300000000000000004649444f.tlbin
-
 
 # Display
 vendor/lib/hw/gralloc.mt6765.so
@@ -226,7 +223,6 @@ vendor/etc/media_codecs_lge.xml
 vendor/etc/media_codecs_mediatek_video.xml
 vendor/etc/media_codecs_performance.xml
 vendor/etc/media_profiles_V1_0.xml
-
 
 # NVRAM
 vendor/bin/nvram_daemon
@@ -479,3 +475,57 @@ vendor/lib/vendor.lge.hardware.wifi.supplicant@2.0.so
 vendor/lib/liblgpclient_jni.so
 vendor/lib/liblgftmitem.so
 vendor/lib/libunified_sysfs_pm.so
+
+# GNSS
+vendor/bin/hw/vendor.lge.hardware.gnss@1.0-service
+vendor/bin/hw/vendor.mediatek.hardware.gnss@1.1-service
+vendor/bin/lbs_hidl_service
+vendor/bin/lgpserver
+vendor/bin/mnld
+vendor/bin/mtk_agpsd
+vendor/etc/agps_profiles_conf2.xml
+vendor/etc/gps.conf
+vendor/etc/init/init.gps_drv.rc
+vendor/etc/init/init.lgpserver.rc
+vendor/etc/init/lbs_hidl_service.rc
+vendor/etc/init/mtk_agpsd.rc
+vendor/etc/init/vendor.lge.hardware.gnss@1.0-service.rc
+vendor/etc/init/vendor.mediatek.hardware.gnss@1.1-service.rc
+vendor/etc/security/cacerts_supl/0f6a1bf3.0
+vendor/etc/security/cacerts_supl/1bc5ca0c.0
+vendor/etc/security/cacerts_supl/1bc5ca0c.1
+vendor/etc/security/cacerts_supl/1e8e7201.0
+vendor/etc/security/cacerts_supl/2cbfcc3a.0
+vendor/etc/security/cacerts_supl/35ef1c14.0
+vendor/etc/security/cacerts_supl/399e7759.0
+vendor/etc/security/cacerts_supl/3ad48a91.0
+vendor/etc/security/cacerts_supl/4bcd7fc4.0
+vendor/etc/security/cacerts_supl/594f1775.0
+vendor/etc/security/cacerts_supl/7651b327.0
+vendor/etc/security/cacerts_supl/7999be0d.0
+vendor/etc/security/cacerts_supl/848ea856.0
+vendor/etc/security/cacerts_supl/876bdba8.0
+vendor/etc/security/cacerts_supl/c542733d.0
+vendor/etc/security/cacerts_supl/c8d68ad2.0
+vendor/etc/security/cacerts_supl/c90bc37d.0
+vendor/etc/security/cacerts_supl/c9dbfc2e.0
+vendor/etc/security/cacerts_supl/ddc328ff.0
+vendor/etc/security/cacerts_supl/ed39abd0.0
+vendor/etc/security/cacerts_supl/f0f58d88.0
+vendor/etc/security/cacerts_supl/f336e3d1.0
+vendor/etc/security/cacerts_supl/facacbc6.0
+vendor/etc/security/cacerts_supl/info.txt
+vendor/lib/hw/flp.default.so
+vendor/lib/hw/gps.default.so
+vendor/lib/hw/vendor.lge.hardware.gnss@1.0-impl.so
+vendor/lib/hw/vendor.mediatek.hardware.gnss@1.1-impl.so
+vendor/lib/lbs_hidl_service-impl.so
+vendor/lib/libgeofence.so
+vendor/lib/liblgegnss-impl.so
+vendor/lib/libviagpsrpc.so
+vendor/lib/modules/gps_drv.ko
+vendor/lib/vendor.lge.hardware.gnss@1.0.so
+vendor/lib/vendor.mediatek.hardware.gnss@1.1.so
+vendor/lib/vendor.mediatek.hardware.lbs@1.0.so
+vendor/lib/libmnl.so
+vendor/lib/libDR.so

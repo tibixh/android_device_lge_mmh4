@@ -43,7 +43,10 @@ function blob_fixup() {
         vendor/bin/hw/vendor.lge.hardware.wifi.hal@1.0-service)
             patchelf --remove-needed "android.hidl.base@1.0.so" "${2}"
             ;;
-    esac
+        vendor/bin/hw/wlan_ril)
+            patchelf --remove-needed "android.hidl.base@1.0.so" "${2}"
+            ;;
+    esac    
     return 0
 }
 

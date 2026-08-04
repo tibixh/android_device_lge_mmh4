@@ -23,7 +23,6 @@ vendor/bin/wmt_launcher
 vendor/bin/wmt_loader
 vendor/bin/wmt_loopback
 vendor/etc/init/init.wmt_drv.rc
-vendor/etc/init/init.wmt_drv.rc
 vendor/etc/wifi/GLOBAL/WMT_SOC.cfg
 vendor/etc/wifi/KR_ALL/WMT_SOC.cfg
 vendor/etc/wifi/WMT_SOC.cfg
@@ -84,6 +83,7 @@ vendor/lib/hw/libMcTeeKeymaster.so
 vendor/bin/mcDriverDaemon
 vendor/lib/libMcClient.so
 vendor/bin/hw/vendor.mediatek.hardware.keymaster_attestation@1.1-service
+vendor/etc/init/vendor.mediatek.hardware.keymaster_attestation@1.1-service.rc
 vendor/lib/hw/vendor.mediatek.hardware.keymaster_attestation@1.1-impl.so
 vendor/lib/vendor.mediatek.hardware.keymaster_attestation@1.0.so
 vendor/lib/vendor.mediatek.hardware.keymaster_attestation@1.1.so
@@ -91,6 +91,8 @@ vendor/lib/vendor.trustonic.teeregistry@1.0.so
 vendor/lib/vendor.trustonic.tee@1.0.so
 vendor/bin/hw/vendor.trustonic.teeregistry@1.0-service
 vendor/bin/hw/vendor.trustonic.tee@1.0-service
+vendor/etc/init/vendor.trustonic.teeregistry@1.0-service.rc
+vendor/etc/init/vendor.trustonic.tee@1.0-service.rc
 vendor/etc/init/tee.rc
 vendor/lib/hw/kmsetkey.trustonic.so 
 vendor/bin/KmInstallKeybox_mtk
@@ -276,6 +278,9 @@ vendor/lib/liblgcamsolution.so
 vendor/lib/liblghdri.so
 vendor/lib/libmpbase.so
 vendor/lib/libfft_vendor.so
+vendor/bin/jpegtool
+vendor/lib/libjpeg-alpha_vendor.so
+vendor/lib/libmhalImageCodec.so
 
 # NVRAM
 vendor/bin/nvram_daemon
@@ -300,14 +305,18 @@ vendor/lib/libsysenv.so
 vendor/bin/ccci_fsd
 vendor/bin/ccci_mdinit
 vendor/bin/ccci_rpcd
-vendor/bin/em_hidl
-vendor/bin/eut_init
-vendor/bin/factory
+vendor/etc/init/init.cccifsd.rc
+vendor/etc/init/init.cccimdinit.rc
+vendor/etc/init/init.cccirpcd.rc
+vendor/lib/libccci_tc1_srv.so
+vendor/lib/libccci_util.so
+
+# RIL
 vendor/bin/flashlessd
 vendor/bin/frstd
 vendor/bin/gsm0710muxd
 vendor/bin/hw/mtkfusionrild
-vendor/bin/hw/rild
+#vendor/bin/hw/rild
 vendor/bin/hw/vendor.lge.hardware.lgatcmd@1.0-service
 vendor/bin/hw/vendor.lge.hardware.vss_ims@1.0-service
 vendor/bin/hw/vendor.mediatek.hardware.mms@1.5-service
@@ -317,23 +326,8 @@ vendor/bin/meta_tst
 vendor/bin/muxreport
 vendor/bin/rttv
 vendor/etc/init/em_hidl_user.rc
-vendor/etc/init/factory/init.lge.atd.rc
-vendor/etc/init/factory/init.miniOS.aat.rc
-vendor/etc/init/factory/init.miniOS.atd.rc
-vendor/etc/init/factory/init.miniOS.config.rc
-vendor/etc/init/factory/init.miniOS.h20.rc
-vendor/etc/init/factory/init.miniOS.h30.rc
-vendor/etc/init/factory/init.miniOS.mfts.rc
-vendor/etc/init/factory/init.miniOS.pre_selfde.rc
-vendor/etc/init/factory/init.miniOS.selfd.rc
-vendor/etc/init/factory/init.miniOS.service.rc
-vendor/etc/init/factory/init.miniOS.taio.rc
 vendor/etc/init/gsm0710muxd.rc
-vendor/etc/init/hw/factory_init.connectivity.rc
-vendor/etc/init/hw/factory_init.project.rc
-vendor/etc/init/hw/factory_init.rc
 vendor/etc/init/hw/init.modem.rc
-vendor/etc/init/hw/meta_init.modem.rc
 vendor/etc/init/init.cccifsd.rc
 vendor/etc/init/init.cccimdinit.rc
 vendor/etc/init/init.cccirpcd.rc
@@ -359,10 +353,10 @@ vendor/lib/libccci_util.so
 vendor/lib/libmtk-ril.so
 vendor/lib/libratconfig.so
 vendor/lib/libreference-ril.so
-vendor/lib/libril.so
+#vendor/lib/libril.so
 vendor/lib/libril_wrapper.so
 vendor/lib/librilfusion.so
-vendor/lib/librilutils.so
+#vendor/lib/librilutils.so
 vendor/lib/librilutilsmtk.so
 vendor/lib/libuicc_vendor.so
 vendor/lib/libvia-ril.so
@@ -390,6 +384,10 @@ vendor/lib/libpcas.so
 vendor/lib/libpcas_vendor.so
 vendor/lib/libpatchcodeid.so
 vendor/lib/libpatchcodeid_vendor.so
+#-framework/mediatek-common.jar
+#-framework/mediatek-telephony-base.jar
+#-framework/mediatek-telephony-common.jar
+
 
 # Firmware
 vendor/firmware/soc1_0_patch_mcu_1_1_hdr.bin

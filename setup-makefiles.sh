@@ -47,14 +47,6 @@ if [ ! -z "$DEVICE_COMMON" ]; then
     setup_vendor "$DEVICE_COMMON" "$VENDOR" "$LINEAGE_ROOT" true
 fi
 
-# Copyright headers and common guards
-write_headers "mmh4"
-
-# Board specific blobs
-write_makefiles "$MY_DIR"/proprietary-files.txt
-
-write_footers
-
 if [ ! -z "$DEVICE_SUB_COMMON" ]; then
     # Reinitialize the helper for sub-common device
     DEVICE_COMMON=$DEVICE_SUB_COMMON
@@ -74,10 +66,10 @@ fi
 
 
 # Copyright headers and guards
-write_headers
+write_headers "mmh4"
 
 # Device specific blobs
-write_makefiles "$MY_DIR"/../$DEVICE/proprietary-files.txt true
+write_makefiles "$MY_DIR"/proprietary-files.txt true
 
 # Vendor BoardConfig variables
 printf 'USE_CAMERA_STUB := false\n' >> "$BOARDMK"

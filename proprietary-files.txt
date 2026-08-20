@@ -542,3 +542,14 @@ vendor/lib/vendor.mediatek.hardware.gnss@1.1.so
 vendor/lib/vendor.mediatek.hardware.lbs@1.0.so
 vendor/lib/libmnl.so
 vendor/lib/libDR.so
+
+# Fingerprint
+vendor/bin/hw/vendor.lge.hardware.biometrics.fingerprint@2.1-service
+vendor/etc/init/vendor.lge.hardware.biometrics.fingerprint@2.1-service.rc
+vendor/lib/vendor.lge.hardware.biometrics.fingerprint@2.1.so
+vendor/etc/fingerprints/hals.conf
+vendor/lib/fingerprint.cfp.so
+vendor/lib/lib_cfp_tac_shared.so
+vendor/lib/fingerprint.focal.so
+vendor/lib/hw/fingerprint.mt6765.so
+vendor/usr/keylayout/cdfinger_inputdev.kl

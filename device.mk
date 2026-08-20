@@ -55,7 +55,7 @@ DEVICE_PACKAGE_OVERLAYS += \
 
 # Recovery init
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/init/init.recovery.mt6765.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.mmh4.rc
+    $(LOCAL_PATH)/configs/init/init.recovery.mmh4.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.mmh4.rc
 
 # HW Init
 PRODUCT_COPY_FILES += \
@@ -111,10 +111,9 @@ PRODUCT_PACKAGES += \
     android.hardware.usb@1.1
 
 # DRM
-# PRODUCT_PACKAGES += \
-#     android.hardware.drm@1.0-service \
-#     android.hardware.drm@1.1-service.clearkey \
-#     android.hardware.drm@1.1-service.widevine
+PRODUCT_PACKAGES += \
+    android.hardware.drm@1.0-impl \
+    android.hardware.drm@1.0-service \
 
 # Gatekeeper
 PRODUCT_PACKAGES += \
@@ -132,6 +131,10 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
+
+# Fingerprint
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/fingerprints/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/fingerprints/hals.conf
 
 # Thermal
 PRODUCT_PACKAGES += \

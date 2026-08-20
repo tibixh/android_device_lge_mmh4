@@ -282,6 +282,10 @@ vendor/bin/jpegtool
 vendor/lib/libjpeg-alpha_vendor.so
 vendor/lib/libmhalImageCodec.so
 
+# DRM
+vendor/bin/hw/android.hardware.drm@1.1-service.widevine
+vendor/etc/init/android.hardware.drm@1.1-service.widevine.rc
+
 # NVRAM
 vendor/bin/nvram_daemon
 vendor/bin/hw/vendor.mediatek.hardware.nvram@1.1-service

@@ -1211,8 +1211,31 @@ wifi_error wifi_get_iface_name(wifi_interface_handle handle, char *name, size_t 
 
 wifi_error wifi_get_supported_feature_set(wifi_interface_handle handle, feature_set *pset)
 {
-    GetFeatureSetCommand command(handle, WIFI_ATTRIBUTE_FEATURE_SET, pset, NULL, NULL, 1);
+#if 0
+    GetFeatureSetCommand command(handle, WIFI_ATTRIBUTE_FEATURE_SET, set, NULL, NULL, 1);
     return (wifi_error)command.requestResponse();
+#else
+    feature_set set = 0;
+    char prop_buf[PROPERTY_VALUE_MAX];
+
+    property_get("ro.wlan.mtk.wifi.5g", prop_buf, NULL);
+    if (!strcmp(prop_buf, "1"))
+        set |= WIFI_FEATURE_INFRA_5G;
+
+    set |= WIFI_FEATURE_P2P;
+    set |= WIFI_FEATURE_SOFT_AP;
+    set |= WIFI_FEATURE_TDLS;
+
+#ifdef CONFIG_PNO_SUPPORT
+    set |= WIFI_FEATURE_PNO;
+#endif
+
+
+    memcpy(pset, &set, sizeof(feature_set));
+
+    ALOGI("[WIFI HAL]wifi_get_supported_feature_set: handle=%p, feature_set=0x%x", handle, *pset);
+    return WIFI_SUCCESS;
+#endif
 }
 
 wifi_error wifi_set_country_code(wifi_interface_handle handle, const char *country_code)

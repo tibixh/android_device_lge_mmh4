@@ -429,22 +429,13 @@ vendor/lib/libcvsd_mtk.so
 vendor/lib/libmsbc_mtk.so
 
 # Wifi
-#vendor/bin/hostapd_cli
-vendor/bin/hw/android.hardware.wifi@1.0-service-mediatek
-#vendor/bin/hw/hostapd
-vendor/bin/hw/vendor.lge.hardware.wifi.hal@1.0-service
 vendor/bin/hw/wlan_ril
-vendor/bin/hw/wpa_supplicant
 vendor/bin/wifi_runtime_conf.sh
 vendor/bin/wififtmd
 vendor/bin/wlan_assistant
-vendor/bin/wpa_cli
-vendor/etc/init/android.hardware.wifi@1.0-service-mediatek.rc
-#vendor/etc/init/hostapd.android.rc
 vendor/etc/init/init.wifi.rc
 vendor/etc/init/init.wifi.runtime.rc
 vendor/etc/init/init.wlan_drv.rc
-vendor/etc/init/vendor.lge.hardware.wifi.hal@1.0-service.rc
 vendor/etc/init/wlan_assistant.rc
 vendor/etc/wifi/GLOBAL/WIFI
 vendor/etc/wifi/GLOBAL/txpowerctrl.cfg
@@ -459,13 +450,7 @@ vendor/etc/wifi/wifi.cfg
 vendor/firmware/WIFI_RAM_CODE_soc1_0_1_1.bin
 vendor/firmware/soc1_0_ram_wifi_1_1_hdr.bin
 vendor/lib/libicuuc_wlan.so
-vendor/lib/libwifi-hal.so
 vendor/lib/libwifitest.so
-vendor/lib/libwpa_client.so
-vendor/lib/vendor.lge.hardware.wifi.hal@1.0.so
-vendor/lib/vendor.lge.hardware.wifi.hostapd@1.0.so
-vendor/lib/vendor.lge.hardware.wifi.supplicant@1.0.so
-vendor/lib/vendor.lge.hardware.wifi.supplicant@2.0.so
 
 # LGE misc
 vendor/lib/liblgpclient_jni.so

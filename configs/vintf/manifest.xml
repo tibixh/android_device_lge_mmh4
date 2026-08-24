@@ -416,16 +416,6 @@
         <fqname>@1.0::ILgAtCmd/default</fqname>
     </hal>
     <hal format="hidl">
-        <name>vendor.lge.hardware.light</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>ILightEx</name>
-            <instance>default</instance>
-        </interface>
-        <fqname>@1.0::ILightEx/default</fqname>
-    </hal>
-    <hal format="hidl">
         <name>vendor.lge.hardware.lpwg</name>
         <transport>hwbinder</transport>
         <version>1.1</version>
@@ -498,16 +488,6 @@
         <fqname>@1.0::IThermal/default</fqname>
     </hal>
     <hal format="hidl">
-        <name>vendor.lge.hardware.touch</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>ITouch</name>
-            <instance>default</instance>
-        </interface>
-        <fqname>@1.0::ITouch/default</fqname>
-    </hal>
-    <hal format="hidl">
         <name>vendor.lge.hardware.usb</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
@@ -536,26 +516,6 @@
             <instance>default</instance>
         </interface>
         <fqname>@1.0::IVssIms/default</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.lge.hardware.wifi.hal</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IWifiLgeHal</name>
-            <instance>default</instance>
-        </interface>
-        <fqname>@1.0::IWifiLgeHal/default</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.lge.hardware.wifi.hostapd</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IHostapdEx</name>
-            <instance>default</instance>
-        </interface>
-        <fqname>@1.0::IHostapdEx/default</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.mediatek.hardware.camera.ccap</name>

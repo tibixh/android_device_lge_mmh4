@@ -179,9 +179,16 @@ PRODUCT_COPY_FILES += \
 
 # Wifi
 PRODUCT_PACKAGES += \
+	android.hardware.wifi@1.0-service \
     libkeystore-wifi-hidl \
     libkeystore-engine-wifi-hidl \
-    hostapd
+	lib_driver_cmd_mt66xx \
+	netd \
+	wpa_supplicant \
+	wpa_cli \
+	hostapd \
+	hostapd_cli \
+
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wifi/p2p_supplicant.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant.conf \
@@ -253,6 +260,25 @@ PRODUCT_SOONG_NAMESPACES += \
 # Display
 TARGET_SCREEN_WIDTH := 720
 TARGET_SCREEN_HEIGHT := 1440
+
+PRODUCT_PACKAGES += \
+    android.hardware.broadcastradio@1.0 \
+    android.hardware.broadcastradio@1.1 \
+    android.hardware.radio@1.0 \
+    android.hardware.radio@1.1 \
+    android.hardware.radio@1.2 \
+    android.hardware.radio@1.3 \
+    android.hardware.radio@1.4 \
+    android.hardware.radio@1.5 \
+    android.hardware.radio.config@1.1 \
+    android.hardware.radio.config@1.2 \
+    android.hardware.radio.deprecated@1.0
+
+PRODUCT_PACKAGES += \
+    libpcap.vendor
+
+# PRODUCT_COPY_FILES += \
+#     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/../tools/vendor/,$(TARGET_COPY_OUT_VENDOR)/)
 
 # Device properties
 $(call inherit-product-if-exists, $(LOCAL_PATH)/props.mk)

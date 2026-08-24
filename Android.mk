@@ -15,5 +15,5 @@
 #
 
 ifneq ($(filter mmh4,$(TARGET_DEVICE)),)
-include $(call all-makefiles-under,$(LOCAL_PATH))
+include $(call all-subdir-makefiles,$(LOCAL_PATH))
 endif

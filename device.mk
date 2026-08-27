@@ -177,11 +177,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf \
     $(LOCAL_PATH)/configs/nfc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf
 
-# Bluetooth
-PRODUCT_PACKAGES += \
-	android.hardware.bluetooth@1.0-impl \
-	android.hardware.bluetooth@1.0-service
-
 # Wifi
 PRODUCT_PACKAGES += \
 	android.hardware.wifi@1.0-service \
@@ -256,10 +251,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
     $(LOCAL_PATH)/configs/media/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
 
-# Soong namespaces
-PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH)
-
 # Display
 TARGET_SCREEN_WIDTH := 720
 TARGET_SCREEN_HEIGHT := 1440
@@ -279,6 +270,10 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     libpcap.vendor
+
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += \
+    $(LOCAL_PATH)
 
 # PRODUCT_COPY_FILES += \
 #     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/../tools/vendor/,$(TARGET_COPY_OUT_VENDOR)/)
